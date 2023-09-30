@@ -7,22 +7,29 @@
 </template>
 
 <script>
+import { ref } from 'vue'
+
 export default {
-  data() {
-    return {
-      counter: 1
+  setup () {
+    const counter = ref(0)
+
+    const increaseCounter = () => {
+      counter.value++
     }
-  },
-  methods: {
-    increaseCounter() {
-      this.counter++
-    },
-    decreaseCounter() {
-      this.counter--
+    const decreaseCounter = () => {
+      counter.value--
+    }
+
+    return {
+      counter,
+      increaseCounter,
+      decreaseCounter,
     }
   }
 }
 </script>
+
+
 <style>
 .home {
   text-align: center;
