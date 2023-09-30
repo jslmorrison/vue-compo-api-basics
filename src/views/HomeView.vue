@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <button class="btn">-</button>
+    <button @click="decreaseCounter" class="btn">-</button>
     <span class="counter">{{ counter }}</span>
-    <button class="btn">+</button>
+    <button @click="increaseCounter" class="btn">+</button>
   </div>
 </template>
 
@@ -11,6 +11,14 @@ export default {
   data() {
     return {
       counter: 1
+    }
+  },
+  methods: {
+    increaseCounter() {
+      this.counter++
+    },
+    decreaseCounter() {
+      this.counter--
     }
   }
 }
