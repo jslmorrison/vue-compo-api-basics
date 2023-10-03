@@ -12,7 +12,7 @@
 
     <div class="edit">
       <h4>Edit counter title</h4>
-      <input v-model="counterData.title" type="text" />
+      <input v-autofocus v-model="counterData.title" type="text" />
     </div>
   </div>
 
@@ -22,7 +22,6 @@
 import { computed, onBeforeMount, reactive, watch } from 'vue'
 
   const appTitle = 'My counter app'
-
   onBeforeMount(() => {
     console.log('onBeforeMount related to title')
   })
@@ -49,10 +48,16 @@ import { computed, onBeforeMount, reactive, watch } from 'vue'
   const decreaseCounter = (amount) => {
     counterData.count -= amount
   }
-
   onBeforeMount(() => {
     console.log('onBeforeMount related to counter')
   })
+
+  const vAutofocus = {
+    mounted: (el) => {
+      console.log('autofocus - local custom directive')
+      el.focus()
+    }
+  }
 </script>
 
 <style>
