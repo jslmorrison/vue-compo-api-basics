@@ -19,9 +19,14 @@
 </template>
 
 <script setup>
-import { computed, onActivated, onBeforeMount, onBeforeUnmount, onDeactivated, onMounted, onUnmounted, reactive, watch } from 'vue'
+import { computed, onBeforeMount, reactive, watch } from 'vue'
 
   const appTitle = 'My counter app'
+
+  onBeforeMount(() => {
+    console.log('onBeforeMount related to title')
+  })
+
   const counterData = reactive({
     count: 0,
     title: 'Count'
@@ -46,22 +51,7 @@ import { computed, onActivated, onBeforeMount, onBeforeUnmount, onDeactivated, o
   }
 
   onBeforeMount(() => {
-    console.log('onBeforeMount')
-  })
-  onBeforeUnmount(() => {
-    console.log('onBeforeUnmount')
-  })
-  onMounted(() => {
-    console.log('onMount')
-  })
-  onUnmounted(() => { console.log('onUnmount')
-  })
-
-  onActivated(() => {
-    console.log('onActivated')
-  })
-  onDeactivated(() => {
-    console.log('onDeActivated')
+    console.log('onBeforeMount related to counter')
   })
 </script>
 
