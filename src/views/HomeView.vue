@@ -20,6 +20,7 @@
 
 <script setup>
 import { computed, onBeforeMount, reactive, watch } from 'vue'
+import { vAutofocus } from '@/directives/vAutofocus'
 
   const appTitle = 'My counter app'
   onBeforeMount(() => {
@@ -52,12 +53,6 @@ import { computed, onBeforeMount, reactive, watch } from 'vue'
     console.log('onBeforeMount related to counter')
   })
 
-  const vAutofocus = {
-    mounted: (el) => {
-      console.log('autofocus - local custom directive')
-      el.focus()
-    }
-  }
 </script>
 
 <style>
