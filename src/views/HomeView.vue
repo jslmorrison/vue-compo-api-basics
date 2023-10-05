@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { computed, onBeforeMount, onMounted, reactive, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeMount, onMounted, reactive, ref, watch } from 'vue'
 import { vAutofocus } from '@/directives/vAutofocus'
 
   const appTitle = 'My counter app'
@@ -43,8 +43,10 @@ import { vAutofocus } from '@/directives/vAutofocus'
     return (counterData.count % 2 === 0) ? 'even' : 'odd'
   })
 
-  const increaseCounter = (amount) => {
+  const increaseCounter = async (amount) => {
     counterData.count += amount
+    await nextTick()
+    console.log('counter value has updated in dom')
   }
   const decreaseCounter = (amount) => {
     counterData.count -= amount
