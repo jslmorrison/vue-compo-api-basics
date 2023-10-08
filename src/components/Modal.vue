@@ -3,7 +3,7 @@
         <div class="modal">
             <h1>{{ title }}</h1>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore provident culpa laboriosam! Deleniti harum possimus id exercitationem quis iure, amet totam placeat vitae animi, voluptate magnam ducimus aliquam, dignissimos reprehenderit.</p>
-            <button>Hide modal</button>
+            <button @click="$emit('hideModal')">Hide modal</button>
         </div>
     </teleport>
 </template>
@@ -15,7 +15,9 @@
             default: 'default modal title from a prop'
         }
     })
-    console.log(props.title)
+    // console.log(props.title)
+
+    const emit =  defineEmits(['hideModal'])
 </script>
 
 <style>

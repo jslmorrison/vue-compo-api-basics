@@ -2,7 +2,11 @@
     <div class="modals">
         <h1>Modals</h1>
         <button @click="showModal = true">Show modal</button>
-        <Modal v-if="showModal"></Modal>
+        <Modal 
+            v-if="showModal"
+            @hideModal="showModal = false"
+        >
+        </Modal>
 
     </div>
 </template>
