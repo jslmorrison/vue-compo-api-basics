@@ -1,12 +1,22 @@
 <template>
     <teleport to=".modals-container">
         <div class="modal">
-            <h1>This is a modal</h1>
+            <h1>{{ title }}</h1>
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore provident culpa laboriosam! Deleniti harum possimus id exercitationem quis iure, amet totam placeat vitae animi, voluptate magnam ducimus aliquam, dignissimos reprehenderit.</p>
             <button>Hide modal</button>
         </div>
     </teleport>
 </template>
+
+<script setup>
+    const props = defineProps({
+        title: {
+            type: String,
+            default: 'default modal title from a prop'
+        }
+    })
+    console.log(props.title)
+</script>
 
 <style>
 .modal {
