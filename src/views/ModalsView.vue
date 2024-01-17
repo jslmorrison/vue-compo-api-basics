@@ -3,8 +3,7 @@
         <h1>Modals</h1>
         <button @click="showModal = true">Show modal</button>
         <Modal 
-            v-if="showModal"
-            @hideModal="showModal = false"
+            v-model="showModal"
         >
         </Modal>
 

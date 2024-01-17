@@ -8,6 +8,17 @@
   <RouterView />
 </template>
 
+<script setup>
+import { ref, provide, reactive } from 'vue';
+
+const userData = reactive({
+  name: 'John',
+  username: '@johnnyMo',
+})
+
+provide('userData', userData)
+</script>
+
 <style scoped>
 header {
   line-height: 1.5;
