@@ -27,38 +27,12 @@ import { vAutofocus } from '@/directives/vAutofocus'
     console.log('onBeforeMount related to title')
   })
 
-  const counterData = reactive({
-    count: 0,
-    title: 'Count'
-  })
 
-  watch(() => counterData.count, (newCount) => {
-    console.log('watching count', newCount);
-    if (newCount === 20) {
-      alert('Counter counts 20!')
-    }
-  })
-
-  const oddOrEven = computed(() => {
-    return (counterData.count % 2 === 0) ? 'even' : 'odd'
-  })
-
-  const increaseCounter = async (amount) => {
-    counterData.count += amount
-    await nextTick()
-    console.log('counter value has updated in dom')
-  }
-  const decreaseCounter = (amount) => {
-    counterData.count -= amount
-  }
   onBeforeMount(() => {
     console.log('onBeforeMount related to counter')
   })
 
   const appTitleRef = ref(null)
-  onMounted(() => {
-    console.log(appTitleRef.value.offsetWidth)
-  })
 
 </script>
 
