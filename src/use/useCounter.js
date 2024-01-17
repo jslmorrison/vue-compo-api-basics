@@ -1,4 +1,4 @@
-import { reactive, computed, onMounted, watch, nextTick } from "vue";
+import { reactive, computed, watch, nextTick } from "vue";
 
 export function useCounter() {
     const counterData = reactive({
@@ -25,10 +25,6 @@ export function useCounter() {
       const decreaseCounter = (amount) => {
         counterData.count -= amount
       }
-
-      onMounted(() => {
-        console.log(appTitleRef.value.offsetWidth)
-      })
 
       return {
         counterData,

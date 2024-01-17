@@ -19,20 +19,27 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeMount, onMounted, reactive, ref, watch } from 'vue'
 import { vAutofocus } from '@/directives/vAutofocus'
+import { useCounter } from '@/use/useCounter'
+import { ref, onBeforeMount, onMounted } from 'vue';
 
   const appTitle = 'My counter app'
+  const appTitleRef = ref(null)
+
   onBeforeMount(() => {
     console.log('onBeforeMount related to title')
   })
 
-
-  onBeforeMount(() => {
-    console.log('onBeforeMount related to counter')
+  onMounted(() => {
+    console.log(appTitleRef.value.offsetWidth)
   })
 
-  const appTitleRef = ref(null)
+  const {
+    counterData,
+    increaseCounter,
+    decreaseCounter,
+    oddOrEven
+  } = useCounter()
 
 </script>
 
