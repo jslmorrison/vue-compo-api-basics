@@ -1,18 +1,18 @@
 <template>
   <div class="home">
     <h2 ref="appTitleRef">{{ appTitle }}</h2>
-    <h3>{{ counterData.title }}:</h3>
-    <button @click="decreaseCounter(2)" class="btn">--</button>
-    <button @click="decreaseCounter(1)" class="btn">-</button>
-    <span class="counter">{{ counterData.count }}</span>
-    <button @click="increaseCounter(1)" class="btn">+</button>
-    <button @click="increaseCounter(2)" class="btn">++</button>
+    <h3>{{ counter.title }}:</h3>
+    <button class="btn" @click="counter.decreaseCounter(2)">--</button>
+    <button class="btn" @click="counter.decreaseCounter(1)">-</button>
+    <span class="counter">{{ counter.count }}</span>
+    <button class="btn" @click="counter.increaseCounter(1)">+</button>
+    <button class="btn" @click="counter.increaseCounter(2)">++</button>
 
-    <p>Current count is: {{ oddOrEven }}</p>
+    <p>Current count is: odd/even</p>
 
     <div class="edit">
       <h4>Edit counter title</h4>
-      <input v-autofocus v-model="counterData.title" type="text" />
+      <input v-model="counter.title" v-autofocus type="text" />
     </div>
   </div>
 
@@ -20,11 +20,13 @@
 
 <script setup>
 import { vAutofocus } from '@/directives/vAutofocus'
-import { useCounter } from '@/use/useCounter'
 import { ref, onBeforeMount, onMounted } from 'vue';
+import { useCounterStore } from '@/stores/counter';
 
   const appTitle = 'My counter app'
   const appTitleRef = ref(null)
+
+  const counter = useCounterStore()
 
   onBeforeMount(() => {
     console.log('onBeforeMount related to title')
@@ -33,13 +35,6 @@ import { ref, onBeforeMount, onMounted } from 'vue';
   onMounted(() => {
     console.log(appTitleRef.value.offsetWidth)
   })
-
-  const {
-    counterData,
-    increaseCounter,
-    decreaseCounter,
-    oddOrEven
-  } = useCounter()
 
 </script>
 
