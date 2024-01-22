@@ -8,13 +8,13 @@
       </li>
     </ul>
 
-    <button class="counter-button" @click="increaseCounter(1)">{{ counterData.count }}</button>
+    <button class="counter-button" @click="counter.increaseCounter(1)">{{ counter.count }}</button>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
-import { useCounter } from '@/use/useCounter'
+import { useCounterStore } from '@/stores/counter';
 
 const posts = ref([
   {
@@ -31,7 +31,8 @@ const posts = ref([
   },
 ]);
 
-const { increaseCounter, counterData } = useCounter()
+const counter = useCounterStore()
+
 </script>
 
 <style scoped>
