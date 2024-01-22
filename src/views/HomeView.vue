@@ -8,7 +8,7 @@
     <button class="btn" @click="counter.increaseCounter(1)">+</button>
     <button class="btn" @click="counter.increaseCounter(2)">++</button>
 
-    <p>Current count is: odd/even</p>
+    <p>Current count is: {{ counter.oddOrEven }}</p>
 
     <div class="edit">
       <h4>Edit counter title</h4>

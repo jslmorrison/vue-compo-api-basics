@@ -14,6 +14,11 @@ export const useCounterStore = defineStore({
       this.count -= amount
     },
   },
+  getters: {
+    oddOrEven: (state) => {
+      return state.count % 2 === 0 ? "even" : "odd";
+    },
+  },
 })
 
 if (import.meta.hot) {
